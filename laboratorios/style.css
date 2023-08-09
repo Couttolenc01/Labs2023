@@ -1,0 +1,78 @@
+header {
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+}
+
+body{
+   
+    background-image: url("https://i.pinimg.com/originals/d6/39/be/d639beee7111df1643f812946891db3a.gif");
+    background-size: cover; /* Ajusta el tamaño del gif al tamaño del contenedor */
+    background-repeat: no-repeat; /* Evita que el gif se repita */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+}
+
+.preguntas {
+    max-height: 500px;
+    padding: 1px;
+    float: left;
+    width: 60%;
+    margin: 30px;
+   
+}
+
+
+.preguntas .scrollable{
+    height: 220px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #162938 #f5f5f5;
+}
+
+.preguntas .scrollable::-webkit-scrollbar{
+    width: 5px;
+}
+
+.preguntas .scrollable::-webkit-scrollbar-track{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.preguntas .scrollable::-webkit-scrollbar-thumb{
+    background-color: #162938;
+    border-radius: 10px;
+}
+
+
+
+p{
+    padding: 10px; /* Reducir el espacio interno vertical */
+    background-color: rgba(173, 216, 230, 0.5); /* Color de fondo azul clarito con transparencia */
+    border: 2px solid #66a3ff; /* Borde sólido de color azul */
+    border-radius: 15px; /* Esquinas ovaladas */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin: 55px; /* Margen alrededor del párrafo */
+    float: left; /* Alinear al extremo izquierdo */
+    width: 60%; /* Ancho del recuadro de texto */
+    display: block; /* Comportamiento de bloque con altura automática */
+    overflow: auto; /* Agregar desplazamiento si el contenido es demasiado largo */
+}
+
+.image {
+    flex: 1;
+    display: flex;
+    align-items: flex-start; /* Alinea la imagen en la parte superior */
+    justify-content: right; /* Alinea la imagen a la izquierda */
+    margin-right:  200px; /* Margen alrededor de la imagen */
+    padding-right: 40px; /* Espacio entre el párrafo y la imagen */
+}
+
+.image img {
+    max-width: 200px; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 15px;
+}
