@@ -3,6 +3,16 @@ header {
     background-color: #fff;
     color: #000;
     padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Francisco{
+    color: blue
+    
+}
+
+#Francisco:hover{
+    color: green
 }
 
 body{
@@ -66,7 +76,7 @@ p{
     flex: 1;
     display: flex;
     align-items: flex-start; /* Alinea la imagen en la parte superior */
-    justify-content: right; /* Alinea la imagen a la izquierda */
+    justify-content: right; /* Alinea la imagen a la derecha */
     margin-right:  200px; /* Margen alrededor de la imagen */
     padding-right: 40px; /* Espacio entre el párrafo y la imagen */
 }
