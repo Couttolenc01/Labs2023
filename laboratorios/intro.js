@@ -124,10 +124,20 @@ for(let i = 0; i < arreglo.length; i++){
 //recorrido moderno del arreglo por javascript
 //in recorre las posiciones del arreglo
 for(let posicion in arreglo) {
-    console.log(valor);
+    console.log(posicion);
 }
 
 //of recorre los valores del arreglo
 for(let valor of arreglo) {
     console.log(valor);
 }
+
+//objetos (JSON: javascript object notation)
+const objeto = {
+    atributo_1: "valor_1",
+    atributo_2: "valor_2",
+    atributo_3: "valor_3",
+};
+
+console.log(objeto);
+console.log(objeto.atributo_1);
