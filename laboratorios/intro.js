@@ -100,3 +100,34 @@ francisco.onclick = () => {
     despliega_rating();
     
 }
+
+//arreglos 
+
+const arreglo = ["Elemento"];  
+
+//agregar elementos al arreglo
+
+arreglo.push("Elemento 2");
+
+arreglo[10]= "Elemento 3";
+
+
+
+//arreglos asociativos
+arreglo["once"] = "otro mas";
+
+//reccorido tradicional del arreglo
+for(let i = 0; i < arreglo.length; i++){
+    console.log(arreglo[i]);
+}
+
+//recorrido moderno del arreglo por javascript
+//in recorre las posiciones del arreglo
+for(let posicion in arreglo) {
+    console.log(valor);
+}
+
+//of recorre los valores del arreglo
+for(let valor of arreglo) {
+    console.log(valor);
+}
