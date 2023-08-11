@@ -1,3 +1,6 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+
 header {
     text-align: center;
     background-color: #fff;
@@ -15,6 +18,7 @@ header {
     color: green
 }
 
+
 body{
    
     background-image: url("https://i.pinimg.com/originals/d6/39/be/d639beee7111df1643f812946891db3a.gif");
@@ -23,8 +27,8 @@ body{
     margin: 0;
     padding: 0;
     overflow: hidden;
-
 }
+
 
 .preguntas {
     max-height: 500px;

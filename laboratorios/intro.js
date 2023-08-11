@@ -141,3 +141,21 @@ const objeto = {
 
 console.log(objeto);
 console.log(objeto.atributo_1);
+
+//funcion ejercicio 1, lab 4 Java
+
+function ejercicio_1(){
+    const nombre = prompt("¿Cuál es tu nombre?");
+    const edad = prompt("¿Cuál es tu edad?");
+    const telefono = prompt("¿Cuál es tu telefono?");
+    const direccion = prompt("¿Cuál es tu direccion?");
+
+    const usuario = {
+        nombre: nombre,
+        edad: edad,
+        telefono: telefono,
+        direccion: direccion,
+    };
+
+    console.log(usuario);
+}
