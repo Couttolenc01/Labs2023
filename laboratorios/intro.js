@@ -60,3 +60,43 @@ function vamonos(){
 }
 
 vamonos();
+
+//funciones modernas
+//funcion sin nombre ()
+() => console.log("Esto es una funcion anonima");
+
+//llamar funcion agregando a un evento o a una variable
+
+//Guardando la funcion en memoria
+
+const funcion_anonima = () => {
+    console.log("Esto es una funcion anonima");
+    
+}
+
+funcion_anonima();
+
+
+//html dinamico con eventos
+
+const francisco = document.getElementById("Francisco");
+
+console.log(francisco);
+
+const despliega_rating = () => {
+    const rating = "10/10, excelente nombre";
+    francisco.innerHTML = rating;
+    francisco.onclick = despliega_nombre;
+}
+
+const despliega_nombre = () => {
+    const nombre = "Francisco Couttolenc Ortiz";
+    francisco.innerHTML = nombre; 
+    francisco.onclick = despliega_rating
+}
+
+francisco.onclick = () => {
+    console.log("hiciste click en Francisco");
+    despliega_rating();
+    
+}
