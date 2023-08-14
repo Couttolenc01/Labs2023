@@ -1,0 +1,32 @@
+body{
+   
+    background-image: url(https://www.muycomputer.com/wp-content/uploads/2022/12/Starfield.jpg);
+    background-size: cover; /* Ajusta el tamaño del gif al tamaño del contenedor */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Estilos para los elementos <li> */
+.menu li {
+    display: inline-block; /* Para que los elementos se muestren en línea */
+    margin-right: 20px; /* Espaciado entre elementos */
+}
+
+/* Estilos para los enlaces <a> dentro de los elementos <li> */
+.menu li a {
+    text-decoration: none; /* Elimina la decoración de subrayado en los enlaces */
+    color: #333; /* Color del texto del enlace */
+    font-weight: bold; /* Peso de la fuente del enlace */
+}
+
+/* Estilo para el enlace <a> cuando se pasa el mouse sobre él */
+.menu li a:hover {
+    color:blue ; /* Cambia el color del texto del enlace al pasar el mouse */
+}
+
+
+
+
+
+
