@@ -1,3 +1,13 @@
+document.getElementById("sentimiento").onkeyup = () => {
+
+    const red = Math.floor(Math.random() * 255);
+    const green = Math.floor(Math.random() * 255);
+    const blue = Math.floor(Math.random() * 255);
+    document.getElementById("sentimiento").style.color = `rgb(${red}, ${green}, ${blue})`;
+}
+
+
+
 function ejercicio_1(){
     // Generación de una tabla con números, cuadrados y cubos:
     var numeroStr = prompt("Ingresa un número");
