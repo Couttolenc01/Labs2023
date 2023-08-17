@@ -24,3 +24,14 @@ for (let item of arreglo) {
         console.log(item);
     }, item);
 }
+
+
+//El modulo http contiene las funciones para 
+//recibir peticiones HTTP y enviar respuestas de HTTP
+const http = require('http');
+
+const server = http.createServer( (request, response) => {
+
+});
+
+server.listen(3000);
