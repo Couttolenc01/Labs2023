@@ -31,6 +31,10 @@ for (let item of arreglo) {
 const http = require('http');
 
 const server = http.createServer( (request, response) => {
+    //console.log(request);
+    response.setHeader('Content-Type', 'text/html');
+    response.write("Hola desde node!");
+    response.end();
 
 });
 
