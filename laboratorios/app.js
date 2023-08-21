@@ -200,9 +200,15 @@ const server = http.createServer( (request, response) => {
         </div>
       </div>
     
-      
-        <footer>
-          <p>Francisco Couttolenc Ortiz A01705763</p> 
+
+        <footer class="footer">
+         <div class="content has-text-centered">
+            <p>
+             <strong>Bulma</strong> by <a href="https://jgthms.com">Francisco Couttolenc Ortiz</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">TEC</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+         </div>
         </footer>
     
         <br>
