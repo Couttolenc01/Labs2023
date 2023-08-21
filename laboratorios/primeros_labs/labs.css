@@ -28,6 +28,20 @@ body{
 
 }
 
+#ejercicio_2{
+    color: black;
+    margin: 10px;
+    padding: 10px;
+
+}
+
+#resultado{
+    color: black;
+    margin: 10px;
+    padding: 10px;
+
+}
+
 table{
      border-collapse: collapse;
      width: 40%;
