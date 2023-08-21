@@ -94,9 +94,20 @@ const matrizEjemplo = [
     [40, 45]
 ];
 
+function ejercicio_5(){
+
+    var numero = 12345;
+
+    var numeroInverso = Number(numero.toString().split('').reverse().join(''));
+
+    document.getElementById("ejercicio_5").innerHTML = "<p>Respuesta al ejercicio 5:</p>" + "Numero de prueba: " + numero + "<br>" +"Numero Inverso: " + numeroInverso;
+
+}
+
 
 // Llamamos primero al ejercicio 1, luego al ejercicio 2 y finalmente al ejercicio 3
 ejercicio_1();
 ejercicio_2();
 ejercicio_3(numeros);
-ejercicio_4(matrizEjemplo)
+ejercicio_4(matrizEjemplo);
+ejercicio_5();
