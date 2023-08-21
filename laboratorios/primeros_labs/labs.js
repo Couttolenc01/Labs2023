@@ -104,6 +104,34 @@ function ejercicio_5(){
 
 }
 
+function ejercicio_6(){
+    
+    var nombre = prompt("Ingresa tu nombre: ");
+    var apellido = prompt("Ingresa tu apellido: ");
+    var cumpleaños = prompt("Ingresa tu cumpleaños (DD/MM):  ");
+
+    var usuario = {
+        nombre: nombre,
+        apellido: apellido,
+        cumpleaños: cumpleaños
+    };
+
+    document.write(`
+    <div class="gift-card">
+      <h2>¡Feliz Cumpleaños!</h2>
+      <p>Querido ${usuario.nombre} ${usuario.apellido},</p>
+      <p>Te deseamos un día lleno de alegría en tu cumpleaños, ${usuario.cumpleaños}.</p>
+      <p>¡Que tengas un año fantástico!</p>
+    </div>
+`);
+
+  document.getElementById("ejercicio_6").innerHTML = "<p>Respuesta al ejercicio 6:</p>" + "Nombre: " + nombre + "<br>" +"Apellido: " + apellido + "<br>" + "Cumpleaños:" + cumpleaños;
+
+
+}
+
+
+
 
 // Llamamos primero al ejercicio 1, luego al ejercicio 2 y finalmente al ejercicio 3
 ejercicio_1();
@@ -111,3 +139,4 @@ ejercicio_2();
 ejercicio_3(numeros);
 ejercicio_4(matrizEjemplo);
 ejercicio_5();
+ejercicio_6();
