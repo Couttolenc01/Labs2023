@@ -54,10 +54,8 @@ function ejercicio_3(arr) {
         }
     }
 
-    var ejercicio3Result = "<p>Respuesta al ejercicio 3:</p>";
-    ejercicio3Result += "Negativos: " + negativos + ", Ceros: " + ceros + ", Positivos: " + positivos;
-
-    document.getElementById("ejercicio_3").innerHTML = ejercicio3Result;
+    document.getElementById("ejercicio_3").innerHTML = "<p>Respuesta al ejercicio 3:</p>"  + "Negativos: " + negativos + ", Ceros: " + ceros + ", Positivos: " + positivos;
+    
     
     return {
          negativos,
@@ -69,7 +67,36 @@ function ejercicio_3(arr) {
 // Ejemplo de uso
 const numeros = [-2, 0, 5, -1, 0, 3, 7];
 
+function ejercicio_4(matriz) {
+    var promediosArr = [];
+
+    for (var i = 0; i < matriz.length; i++) {
+        var fila = matriz[i];
+        var suma = 0;
+
+        for (var j = 0; j < fila.length; j++) {
+            suma += fila[j];
+        }
+
+        var promedio = suma / fila.length;
+        promediosArr.push(promedio);
+    }
+
+    document.getElementById("ejercicio_4").innerHTML = "<p>Respuesta al ejercicio 4:</p>" + "Promedios: " + promediosArr.join(", ");
+
+    return promediosArr;
+}
+
+// Ejemplo de uso
+const matrizEjemplo = [
+    [5, 10, 15],
+    [20, 25, 30, 35],
+    [40, 45]
+];
+
+
 // Llamamos primero al ejercicio 1, luego al ejercicio 2 y finalmente al ejercicio 3
 ejercicio_1();
 ejercicio_2();
 ejercicio_3(numeros);
+ejercicio_4(matrizEjemplo)
