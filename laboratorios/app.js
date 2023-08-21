@@ -45,6 +45,9 @@ const server = http.createServer( (request, response) => {
             background-color: whitesmoke;
           }
         </style>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+        
       </head>
       <body>
         <header>
@@ -67,8 +70,16 @@ const server = http.createServer( (request, response) => {
             Tecnologico de Monterrey Campus Queretaro. Tengo un perro llamado
             <strong>Otto</strong> es un bulldog ingles y es muy dormilon.
           </p>
+
+          <figure class="image is-128x128">
+            <img class ="is-rounded" src="https://mail.google.com/mail/u/0?ui=2&ik=9515b537b4&attid=0.1.1&permmsgid=msg-f:1773716780219238798&th=189d8203991e098e&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8G7Djl59565BeaXf3iu6xrKN563B13bCugCh_Dq2R6t0riWpPHzjpqdnAkX-K3BdPiakTXzCShAEudQCAmBmGwU0-NWqFtSdne4hPFcCG3AtjoFrmpgiS43rY&disp=emb/34x34">
+          <figure>
+
         </div>
-    
+
+        
+
+    <div class="box"
         <div class="preguntas">
           <div class="scrollable">
             <p>
@@ -187,18 +198,9 @@ const server = http.createServer( (request, response) => {
             </p>
           </div>
         </div>
+      </div>
     
-        <div class="image">
-          <img class="is-rounded" 
-            src="https://mail.google.com/mail/u/0?ui=2&ik=9515b537b4&attid=0.1.1&permmsgid=msg-f:1773716780219238798&th=189d8203991e098e&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8G7Djl59565BeaXf3iu6xrKN563B13bCugCh_Dq2R6t0riWpPHzjpqdnAkX-K3BdPiakTXzCShAEudQCAmBmGwU0-NWqFtSdne4hPFcCG3AtjoFrmpgiS43rY&disp=emb"
-            alt="Otto y yo"
-          />
-        </div>
-    
-        
-    
-        
-    
+      
         <footer>
           <p>Francisco Couttolenc Ortiz A01705763</p> 
         </footer>
