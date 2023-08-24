@@ -130,6 +130,10 @@ function ejercicio_6(){
 
 }
 
+function lab_6(){
+    
+}
+
 
 
 
