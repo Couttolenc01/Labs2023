@@ -301,7 +301,7 @@ const server = http.createServer((request, response) => {
             <html>
             <head>
                 <title>
-                    Labs A01709338 
+                    Labs A01754959
                 </title>
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -310,38 +310,48 @@ const server = http.createServer((request, response) => {
             <body>
                 <header>
                     <div class="box">
-                        <h1 class="title is-1-desktop">Labs Tc2005b</h1>
-                        <h2 class="subtitle is-1-desktop">Jorge Emiliano Pomar A01709338</h2>
+                        <h1 class="title is-1-desktop">Tienda en linea</h1>
+                        <h2 class="subtitle is-1-desktop">Videojuegos</h2>
                     </div>
                 </header>
-                <section class="section">
-                    <div class="container">
-                        <p>
-                            <label for="pelicula">Pelicula favorita: </label>
-                            <input id ="pelicula" class="input is-primary" type="text" placeholder="Primary input">
-                        </p>
-                        <div class = "box">
-                            <h1 class="title is-1-desktop">Lab6: Tienda</h1>
-                            <br>
-                            <div id="papas"></div>
-                            <hr>
-                            <button id="boton_papas" class="button is-danger is-rounded">Precio</button>
-                            <hr>
-                            <button id="boton_seleccion1" class="button is-danger is-rounded">Seleccionar papas</button>
-                            <hr>
-                            <box id="precio_papas">...</box>
-                            <hr>
-                            <div id="refrescos"></div>
-                            <hr>
-                            <button id="boton_refresco" class="button is-danger is-rounded">Precio</button>
-                            <hr>
-                            <box id="precio_refrescos">...</box> 
-                            <hr>
-                            <button id="boton_seleccion2" class="button is-danger is-rounded">Seleccionar refrescos</button>
-                            <hr>
-                        </div>
-                    </div>
-                </section>
+                <section class="products">
+            <div class="product-item">
+                <h2>Starfield</h2>
+                <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2022/04/28/626ac5051c60b.jpeg" alt="Starfield Game">
+                <p>Price: $1800</p>
+                <label for="QuantityProduct1">Quantity:</label>
+                <input type="number" id="QuantityProduct1" value="0" min="0">
+                <p>A stunning space exploration game set in a futuristic universe.</p>
+                <button onclick="addToCart('Starfield', 1800)">Add to cart</button>
+            </div>
+        
+            <div class="product-item">
+                <h2>Alan Wake 2</h2>
+                <img src="https://www.instant-gaming.com/images/products/7493/616x353/alan-wake-2-pc-game-cover.jpg?v=1657004400" alt="Alan Wake 2 Game">
+                <p>Price: $1700</p>
+                <label for="QuantityProduct2">Quantity:</label>
+                <input type="number" id="QuantityProduct2" value="0" min="0">
+                <button onclick="addToCart('Alan Wake 2', 1700)">Add to cart</button>
+                <p>A psychological thriller action-adventure game with a gripping storyline.</p>
+            </div>
+
+            <div class="product-item">
+                <h2>Assasins Creed Mirage</h2>
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202304/2714/d7a1f9339c13b4284fcba2acd8d5e4ba2867fa6ef3b8b857.png" alt="Assasins Creed Mirage Game">
+                <p>Price: $1500</p>
+                <label for="QuantityProduct3">Quantity:</label>
+                <input type="number" id="QuantityProduct3" value="0" min="0">
+                <button onclick="addToCart('Assasins Crred Mirage', 1500)">Add to cart</button>
+                <p>Mirage is principally set in 9th-century Baghdad during the anarchy at Samarra, and follows Basim Ibn Ishaq (a character first introduced in Valhalla) and his transition from street thief to fully-fledged member of the Assassin Brotherhood</p>
+            </div>
+
+            <div class="summary">
+                <h2>Resumen de Compra</h2>
+                <p>Total: <span id="total">$0</span></p>
+                <p>IVA (16%): <span id="iva">$0</span></p>
+            </div>
+
+        </section>
             </body>
             </html>
             `);
@@ -353,7 +363,7 @@ const server = http.createServer((request, response) => {
     <html>
     <head>
         <title>
-            Labs A01709338 
+            Labs A01754959 
         </title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
