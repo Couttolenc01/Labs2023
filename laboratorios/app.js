@@ -30,12 +30,14 @@ for (let item of arreglo) {
 //recibir peticiones HTTP y enviar respuestas de HTTP
 const http = require('http');
 
-const server = http.createServer( (request, response) => {
-    //console.log(request);
-    response.setHeader('Content-Type', 'text/html');
-    response.write(`<!DOCTYPE html>
-    <html lang="en">
-      <head>
+const server = http.createServer((request, response) => {
+    console.log(request.url);
+    console.log(request.method);
+    if (request.url === '/') {
+        response.setHeader('Content-Type', 'text/html');
+        response.write(`<!DOCTYPE html>
+        <html lang="en">
+        <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Pagina Personal</title>
@@ -73,7 +75,7 @@ const server = http.createServer( (request, response) => {
 
           <figure class="image is-128x128">
             <img class ="is-rounded" src="https://mail.google.com/mail/u/0?ui=2&ik=9515b537b4&attid=0.1.1&permmsgid=msg-f:1773716780219238798&th=189d8203991e098e&view=fimg&fur=ip&sz=s0-l75-ft&attbid=ANGjdJ8G7Djl59565BeaXf3iu6xrKN563B13bCugCh_Dq2R6t0riWpPHzjpqdnAkX-K3BdPiakTXzCShAEudQCAmBmGwU0-NWqFtSdne4hPFcCG3AtjoFrmpgiS43rY&disp=emb/34x34">
-          <figure>
+          </figure>
 
         </div>
 
@@ -218,8 +220,177 @@ const server = http.createServer( (request, response) => {
       </body>
     </html>
     `);
-    response.end();
 
+        response.end();
+
+    } else if (request.url =='/new' && request.method == "GET") {
+        response.write(`<!DOCTYPE html>
+            <html>
+            <head>
+            <title>
+            Labs A01754959
+            </title>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+            </head>
+            <body>
+            <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+            <a class="navbar-item" href="https://bulma.io">
+            <img src="https://images.vexels.com/media/users/3/161230/isolated/preview/1fa58bd038c77c9d668475b9f05126a5-ilustracion-de-banda-de-disco-de-vinilo.png" alt="disco" width="112" height="112">
+            </a>
+            
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            </a>
+            </div>
+            </nav>
+            </header>
+            <main>
+            <section class="section">
+            <div class="container">
+            <h1 class="title">Registro de discos</h1>
+            <form action="/new" method="POST">
+            <label for="nombre">Nombre del disco</label>
+            <input id="nombre" name="nombre" class="input" type="text" placeholder="Album">
+            <br><br>
+            <label for="artista">Artista</label>
+            <input id="artista" name="artista" class="input" type="text" placeholder="Artista">
+            <br>
+            <input id="registrar" name="registrar" type="submit" value="Registrar" class="button is-info">
+            </form>
+            </div>
+            </section>
+            </main>
+            </body>
+            </html>`)
+
+            response.end();
+
+    } else if (request.url == '/new' && request.method == "POST") {
+        const datos = [];
+        request.on('data', (dato) => {
+            datos.push(dato);
+        });
+
+        return request.on('end', () => {
+            const datos_completos = Buffer.concat(datos).toString();
+            console.log(datos_completos);
+            const primera_variable = datos_completos.split('&')[0];
+            console.log(primera_variable);
+            const primer_valor = primera_variable.split('=')[1];
+            console.log(primer_valor);
+            const album = datos_completos.split('&')[1].split('=')[1];
+            console.log(album);
+            response.write('El disco fue registrado');
+            const filesystem = require('fs');
+            filesystem.writeFile('datos.txt', datos_completos, { flag: 'a+' }, err => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+            return response.end();
+        });
+
+    } else if (request.url == '/tienda' && request.method == "GET") {
+        response.write(`<!DOCTYPE html>
+            <html>
+            <head>
+                <title>
+                    Labs A01709338 
+                </title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+            </head>
+            <body>
+                <header>
+                    <div class="box">
+                        <h1 class="title is-1-desktop">Labs Tc2005b</h1>
+                        <h2 class="subtitle is-1-desktop">Jorge Emiliano Pomar A01709338</h2>
+                    </div>
+                </header>
+                <section class="section">
+                    <div class="container">
+                        <p>
+                            <label for="pelicula">Pelicula favorita: </label>
+                            <input id ="pelicula" class="input is-primary" type="text" placeholder="Primary input">
+                        </p>
+                        <div class = "box">
+                            <h1 class="title is-1-desktop">Lab6: Tienda</h1>
+                            <br>
+                            <div id="papas"></div>
+                            <hr>
+                            <button id="boton_papas" class="button is-danger is-rounded">Precio</button>
+                            <hr>
+                            <button id="boton_seleccion1" class="button is-danger is-rounded">Seleccionar papas</button>
+                            <hr>
+                            <box id="precio_papas">...</box>
+                            <hr>
+                            <div id="refrescos"></div>
+                            <hr>
+                            <button id="boton_refresco" class="button is-danger is-rounded">Precio</button>
+                            <hr>
+                            <box id="precio_refrescos">...</box> 
+                            <hr>
+                            <button id="boton_seleccion2" class="button is-danger is-rounded">Seleccionar refrescos</button>
+                            <hr>
+                        </div>
+                    </div>
+                </section>
+            </body>
+            </html>
+            `);
+            response.end();
+        } else {
+            response.statusCode = 404;
+            response.write(`    
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>
+            Labs A01709338 
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
+    <body>
+        <header>
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="https://bulma.io">
+                        <img src="https://bulma.io/images/bulma-logo.png" alt="Bulma: Free, open source, and modern CSS framework based on Flexbox" width="112" height="28">
+                    </a>
+                
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <section class="section">
+                <div class="container">
+                    <h1 class="title">Tu disco no se encontró :( </h1>
+                </div>
+            </section>
+        </main>
+    </body>
+    </html>
+    `);
+
+    response.end();
+}
+        
 });
 
-server.listen(3000);
+
+
+server.listen(3000); // necesita de una funcion que escuche. El numero indica el puerto en el que se van a esuchar las peticiones (se recomienda mas de 1000 por si estan ocupados)
