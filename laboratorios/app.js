@@ -239,7 +239,7 @@ const server = http.createServer((request, response) => {
             <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
             <a class="navbar-item" href="https://bulma.io">
-            <img src="https://images.vexels.com/media/users/3/161230/isolated/preview/1fa58bd038c77c9d668475b9f05126a5-ilustracion-de-banda-de-disco-de-vinilo.png" alt="disco" width="112" height="112">
+            <img src="https://www.scdn.co/i/_global/open-graph-default.png" alt="Spotify" width="128" height="128">
             </a>
             
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
@@ -253,13 +253,14 @@ const server = http.createServer((request, response) => {
             <main>
             <section class="section">
             <div class="container">
-            <h1 class="title">Registro de discos</h1>
+            <h1 class="title">Registro de canciones</h1>
             <form action="/new" method="POST">
-            <label for="nombre">Nombre del disco</label>
+            <label for="nombre">Nombre de la canacion</label>
             <input id="nombre" name="nombre" class="input" type="text" placeholder="Album">
             <br><br>
             <label for="artista">Artista</label>
             <input id="artista" name="artista" class="input" type="text" placeholder="Artista">
+            <br>
             <br>
             <input id="registrar" name="registrar" type="submit" value="Registrar" class="button is-info">
             </form>
@@ -317,36 +318,48 @@ const server = http.createServer((request, response) => {
                 <section class="products">
             <div class="product-item">
                 <h2>Starfield</h2>
+                <figure class="image is-128x128">
                 <img src="https://www.eltiempo.com/files/article_main_1200/uploads/2022/04/28/626ac5051c60b.jpeg" alt="Starfield Game">
+                </figure>
                 <p>Price: $1800</p>
                 <label for="QuantityProduct1">Quantity:</label>
                 <input type="number" id="QuantityProduct1" value="0" min="0">
-                <p>A stunning space exploration game set in a futuristic universe.</p>
+                <p>Description: A stunning space exploration game set in a futuristic universe.</p>
                 <button onclick="addToCart('Starfield', 1800)">Add to cart</button>
             </div>
+
+            <br>
         
             <div class="product-item">
                 <h2>Alan Wake 2</h2>
+                <figure class="image is-128x128">
                 <img src="https://www.instant-gaming.com/images/products/7493/616x353/alan-wake-2-pc-game-cover.jpg?v=1657004400" alt="Alan Wake 2 Game">
+                </figure>
                 <p>Price: $1700</p>
                 <label for="QuantityProduct2">Quantity:</label>
                 <input type="number" id="QuantityProduct2" value="0" min="0">
                 <button onclick="addToCart('Alan Wake 2', 1700)">Add to cart</button>
-                <p>A psychological thriller action-adventure game with a gripping storyline.</p>
+                <p>Description: A psychological thriller action-adventure game with a gripping storyline.</p>
             </div>
+
+            <br>
 
             <div class="product-item">
                 <h2>Assasins Creed Mirage</h2>
+                <figure class="image is-128x128">
                 <img src="https://image.api.playstation.com/vulcan/ap/rnd/202304/2714/d7a1f9339c13b4284fcba2acd8d5e4ba2867fa6ef3b8b857.png" alt="Assasins Creed Mirage Game">
+                </figure>
                 <p>Price: $1500</p>
                 <label for="QuantityProduct3">Quantity:</label>
                 <input type="number" id="QuantityProduct3" value="0" min="0">
                 <button onclick="addToCart('Assasins Crred Mirage', 1500)">Add to cart</button>
-                <p>Mirage is principally set in 9th-century Baghdad during the anarchy at Samarra, and follows Basim Ibn Ishaq (a character first introduced in Valhalla) and his transition from street thief to fully-fledged member of the Assassin Brotherhood</p>
+                <p>Description: Mirage is principally set in 9th-century Baghdad during the anarchy at Samarra, and follows Basim Ibn Ishaq (a character first introduced in Valhalla) and his transition from street thief to fully-fledged member of the Assassin Brotherhood</p>
             </div>
 
+            <br>
+
             <div class="summary">
-                <h2>Resumen de Compra</h2>
+                <h2>Purchase summary</h2>
                 <p>Total: <span id="total">$0</span></p>
                 <p>IVA (16%): <span id="iva">$0</span></p>
             </div>
@@ -355,8 +368,11 @@ const server = http.createServer((request, response) => {
             </body>
             </html>
             `);
+            
             response.end();
-        } else {
+        
+        
+     } else {
             response.statusCode = 404;
             response.write(`    
     <!DOCTYPE html>
@@ -388,7 +404,7 @@ const server = http.createServer((request, response) => {
         <main>
             <section class="section">
                 <div class="container">
-                    <h1 class="title">Tu disco no se encontró :( </h1>
+                    <h1 class="title">Tu cancion no se encontro. </h1>
                 </div>
             </section>
         </main>
