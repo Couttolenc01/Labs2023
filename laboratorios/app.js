@@ -255,7 +255,7 @@ const server = http.createServer((request, response) => {
             <div class="container">
             <h1 class="title">Registro de canciones</h1>
             <form action="/new" method="POST">
-            <label for="nombre">Nombre de la canacion</label>
+            <label for="nombre">Nombre de la cancion</label>
             <input id="nombre" name="nombre" class="input" type="text" placeholder="Album">
             <br><br>
             <label for="artista">Artista</label>
