@@ -20,9 +20,9 @@ app.use(morgan('dev'))
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 });
 
-app.use((request, response, next) => {
+/* app.use((request, response, next) => {
     response.send('¡Respuesta de la ruta "/user"'); //Manda la respuesta
-});
+}); */
  
 
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
@@ -49,5 +49,7 @@ app.put('/user/:id', (req, res) => {
 app.delete('/user/:userId', (req, res) => {
     res.send(`User ${req.params.userId} DELETED`);
 });
+
+app.use(express.static('public')); //Para que el servidor pueda leer archivos estaticos
 
 app.listen(3000, () => console.log('Server on port 3000')); //Puerto en el que se va a correr el servidor 
