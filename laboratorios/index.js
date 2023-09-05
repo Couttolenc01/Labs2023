@@ -6,10 +6,17 @@
 // req.body te permite tomar la informacion que el cliente o la apliacion que te esta enviando
 // req.params te permite tomar los parametros que el cliente te esta enviando, quiero que el usuario tenga estos nuevos datos (id)
 // Middelware un manejo de peticion, antes de llegar a la ruta procesamos.
+//Motor de plantilla EJS
 
 const express = require('express'); //Requiriendo un modulo, utiliza internamente el modulo de http el cual esta establecido en el de app.js
 const morgan = require('morgan');
 const app = express(); //Servidor de express
+
+//Settings
+app.set('appName', 'Express Tutorial'); //Estableciendo una configuracion
+app.set('port', 3000);
+app.set('view engine', 'ejs'); //Motor de plantilla
+
 
 //Middlewares
 
@@ -28,6 +35,13 @@ app.use(morgan('dev'))
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
  //Routes
+
+app.get('/', (req, res) => { 
+    const data = [{name: 'Cameron'}, {name: 'Howe'}, {name: 'Harry'}, {name: 'Potter'}];
+    res.render('index.ejs', {people:data}); //Renderiza el archivo index.ejs
+});
+
+
 app.get('/user', (req, res) => {        
      res.json({
             username: 'Cameron',
@@ -52,4 +66,9 @@ app.delete('/user/:userId', (req, res) => {
 
 app.use(express.static('public')); //Para que el servidor pueda leer archivos estaticos
 
-app.listen(3000, () => console.log('Server on port 3000')); //Puerto en el que se va a correr el servidor 
+app.listen(app.get('port'), () => {
+    console.log(app.get('appName'));
+    console.log('Server on port 3000'); 
+
+
+});//Puerto en el que se va a correr el servidor 
