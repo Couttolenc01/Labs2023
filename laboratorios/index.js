@@ -10,6 +10,7 @@
 
 const express = require('express'); //Requiriendo un modulo, utiliza internamente el modulo de http el cual esta establecido en el de app.js
 const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const app = express(); //Servidor de express
 
 //Settings
@@ -22,21 +23,45 @@ app.set('view engine', 'ejs'); //Motor de plantilla
 
 app.use(morgan('dev'))
 
- app.use((request, response, next) => {
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
+}); 
+
+
+app.get('/videojuegos/nuevoVideojuego', (request, response, next) => {
+    response.send('<h1>Nuevo Videojuego</h1><body><h1>Agrega un videojuego</h1><form action="nuevoVideojuego" method="POST"><input type ="text" name="nombre"><input type="submit" value="Guardar videojuego"></form>'); //Manda la respuesta
 });
 
-/* app.use((request, response, next) => {
-    response.send('¡Respuesta de la ruta "/user"'); //Manda la respuesta
-}); */
+app.post('/videojuegos/nuevoVideojuego', (request, response, next) => {
+    console.log(request.body.nombre);
+    response.send('<h1>Videojuego guardado</h1>'); //Manda la respuesta
+});
+
+app.use('/videojuegos', (request, response, next) => {
+    response.send('<h1>Videojuegos</h1>'); //Manda la respuesta
+});
+
+app.use('/', (request, response, next) => {
+    response.send('<h1>Hola Mundo!</h1>'); //Manda la respuesta
+});
+
+app.use((request, response, next) => {
+    console.log('Hola Mundo');
+    response.send('¡Hola Mundo!'); //Manda la respuesta
+});
+
  
 
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
  //Routes
 
-app.get('/', (req, res) => { 
+
+
+/* app.get('/', (req, res) => { 
     const data = [{name: 'Cameron'}, {name: 'Howe'}, {name: 'Harry'}, {name: 'Potter'}];
     res.render('index.ejs', {people:data}); //Renderiza el archivo index.ejs
 });
@@ -65,6 +90,10 @@ app.delete('/user/:userId', (req, res) => {
 });
 
 app.use(express.static('public')); //Para que el servidor pueda leer archivos estaticos
+
+app.use((req, res) => {
+    res.status(404).send('404 not found');
+}); */
 
 app.listen(app.get('port'), () => {
     console.log(app.get('appName'));
