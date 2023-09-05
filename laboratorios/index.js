@@ -5,13 +5,29 @@
 //res.json -> objeto de JavaScript
 // req.body te permite tomar la informacion que el cliente o la apliacion que te esta enviando
 // req.params te permite tomar los parametros que el cliente te esta enviando, quiero que el usuario tenga estos nuevos datos (id)
+// Middelware un manejo de peticion, antes de llegar a la ruta procesamos.
 
 const express = require('express'); //Requiriendo un modulo, utiliza internamente el modulo de http el cual esta establecido en el de app.js
+const morgan = require('morgan');
 const app = express(); //Servidor de express
+
+//Middlewares
+
+app.use(morgan('dev'))
+
+ app.use((request, response, next) => {
+    console.log('Middleware!');
+    next(); //Le permite a la petición avanzar hacia el siguiente middleware
+});
+
+app.use((request, response, next) => {
+    response.send('¡Respuesta de la ruta "/user"'); //Manda la respuesta
+});
+ 
 
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
- //Ruta inicial del servidor
+ //Routes
 app.get('/user', (req, res) => {        
      res.json({
             username: 'Cameron',
