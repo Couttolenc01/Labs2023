@@ -25,24 +25,18 @@ app.use(morgan('dev'))
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
+
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 }); 
 
+const rutasVideojuegos = require('./Routes/videojuegos.routes');
+const rutasTienda = require('./Routes/tienda.routes');
 
-app.get('/videojuegos/nuevoVideojuego', (request, response, next) => {
-    response.send('<h1>Nuevo Videojuego</h1><body><h1>Agrega un videojuego</h1><form action="nuevoVideojuego" method="POST"><input type ="text" name="nombre"><input type="submit" value="Guardar videojuego"></form>'); //Manda la respuesta
-});
-
-app.post('/videojuegos/nuevoVideojuego', (request, response, next) => {
-    console.log(request.body.nombre);
-    response.send('<h1>Videojuego guardado</h1>'); //Manda la respuesta
-});
-
-app.use('/videojuegos', (request, response, next) => {
-    response.send('<h1>Videojuegos</h1>'); //Manda la respuesta
-});
+app.use('/videojuegos', rutasVideojuegos);
+app.use('/tienda', rutasTienda);
 
 app.use('/', (request, response, next) => {
     response.send('<h1>Hola Mundo!</h1>'); //Manda la respuesta
@@ -53,13 +47,11 @@ app.use((request, response, next) => {
     response.send('¡Hola Mundo!'); //Manda la respuesta
 });
 
- 
-
-app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
+app.listen(3000); 
 
  //Routes
 
-
+//const rutasLabs = require('./routes/labs');
 
 /* app.get('/', (req, res) => { 
     const data = [{name: 'Cameron'}, {name: 'Howe'}, {name: 'Harry'}, {name: 'Potter'}];
@@ -95,9 +87,12 @@ app.use((req, res) => {
     res.status(404).send('404 not found');
 }); */
 
-app.listen(app.get('port'), () => {
+
+
+/*app.listen(app.get('port'), () => {
     console.log(app.get('appName'));
     console.log('Server on port 3000'); 
 
 
-});//Puerto en el que se va a correr el servidor 
+});//Puerto en el que se va a correr el servidor */
+
