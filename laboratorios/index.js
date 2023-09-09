@@ -35,8 +35,10 @@ app.use((request, response, next) => {
 const rutasVideojuegos = require('./Routes/videojuegos.routes');
 const rutasTienda = require('./Routes/tienda.routes');
 
+
 app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
+
 
 app.use('/', (request, response, next) => {
     response.send('<h1>Hola Mundo!</h1>'); //Manda la respuesta
