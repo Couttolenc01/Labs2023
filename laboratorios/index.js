@@ -40,9 +40,9 @@ app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
 
 
-app.use('/', (request, response, next) => {
-    response.send('<h1>Hola Mundo!</h1>'); //Manda la respuesta
-});
+app.use((req, res) => {
+    res.status(404).send('Página no encontrada');
+  });
 
 app.use((request, response, next) => {
     console.log('Hola Mundo');
