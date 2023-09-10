@@ -31,10 +31,14 @@ router.get('/nuevos', (request, response, next) => {
         </figure>
         <p>Price: $1800</p>
         <label for="QuantityProduct1">Quantity:</label>
-        <from action="addToCart" method="POST">
-        <input type="number" id="QuantityProduct1" value="0" min="0">
+        <form action="/tienda/addToCart" method="POST">
+        <input type="hidden" name="nombre" value="Starfield">
+        <input type="hidden" name="price" value="1800">
+        <!-- Agregamos el campo de entrada para la cantidad -->
+        <input type="number" name="cantidad" value="0" min="0">
+        <input type="submit" value="Add to cart">
+        </form>
         <p>Description: A stunning space exploration game set in a futuristic universe.</p>
-        <button onclick="addToCart('Starfield', 1800)">Add to cart</button>
     </div>
 
     <br>
@@ -46,9 +50,13 @@ router.get('/nuevos', (request, response, next) => {
         </figure>
         <p>Price: $1700</p>
         <label for="QuantityProduct2">Quantity:</label>
-        <from action="addToCart" method="POST">
-        <input type="number" id="QuantityProduct2" value="0" min="0">
-        <button onclick="addToCart('Alan Wake 2', 1700)">Add to cart</button>
+        <form action="/tienda/addToCart" method="POST">
+        <input type="hidden" name="nombre" value="Alan Wake 2">
+        <input type="hidden" name="price" value="1700">
+        <!-- Agregamos el campo de entrada para la cantidad -->
+        <input type="number" name="cantidad" value="0" min="0">
+        <input type="submit" value="Add to cart">
+        </form>
         <p>Description: A psychological thriller action-adventure game with a gripping storyline.</p>
     </div>
 
@@ -78,7 +86,6 @@ router.get('/nuevos', (request, response, next) => {
         <form action="/tienda/summary" method="POST">
         <input type="submit" value="Summary">
         </form>
-        <p>Total: <span id="total">$0</span></p>
     </div>
 
 </section>
@@ -107,7 +114,7 @@ function addToCart(nombre, price) {
     });
   }
   
-  
+
 router.post('/addToCart', (request, response, next) => {
     console.log(request.body.nombre);
     const { nombre, price, cantidad } = request.body;
