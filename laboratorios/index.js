@@ -16,6 +16,12 @@ const path = require('path');
 const app = express(); //Servidor de express
 
 
+//funcion set sirve para cambiar los valores de las variables globales
+
+app.set('view engine', 'ejs'); //express utiliza el motor de vista ejs
+app.set('views', 'views'); // la carpeta donde se ecuentran todas mis vistas es views
+
+
 //Settings
 app.set('appName', 'Express Tutorial'); //Estableciendo una configuracion
 app.set('port', 3000);
