@@ -7,11 +7,14 @@
 // req.params te permite tomar los parametros que el cliente te esta enviando, quiero que el usuario tenga estos nuevos datos (id)
 // Middelware un manejo de peticion, antes de llegar a la ruta procesamos.
 //Motor de plantilla EJS
+//Carpeta PUBLIC es la que estara expuesta a todo el internet, para acceder a los demas archivos desde fuera
 
 const express = require('express'); //Requiriendo un modulo, utiliza internamente el modulo de http el cual esta establecido en el de app.js
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express(); //Servidor de express
+
 
 //Settings
 app.set('appName', 'Express Tutorial'); //Estableciendo una configuracion
@@ -25,6 +28,9 @@ app.use(morgan('dev'))
 
 app.use(bodyParser.urlencoded({extended: false}));
 
+//Para acceder a los recursos de la carpeta public
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
 app.use((request, response, next) => {
@@ -32,12 +38,17 @@ app.use((request, response, next) => {
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 }); 
 
+
 const rutasVideojuegos = require('./Routes/videojuegos.routes');
 const rutasTienda = require('./Routes/tienda.routes');
 
 
 app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
+
+app.get('/inicio', (request, response, next) => {
+    response.sendFile(path.join(__dirname, 'views', 'inicio.html'));
+});
 
 
 app.use((req, res) => {

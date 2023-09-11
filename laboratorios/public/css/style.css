@@ -1,0 +1,101 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+
+
+header {
+    text-align: center;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilos para los elementos <li> */
+.menu li {
+    display: inline-block; /* Para que los elementos se muestren en línea */
+    margin-right: 20px; /* Espaciado entre elementos */
+}
+
+/* Estilos para los enlaces <a> dentro de los elementos <li> */
+.menu li a {
+    text-decoration: none; /* Elimina la decoración de subrayado en los enlaces */
+    color: #333; /* Color del texto del enlace */
+    font-weight: bold; /* Peso de la fuente del enlace */
+}
+
+/* Estilo para el enlace <a> cuando se pasa el mouse sobre él */
+.menu li a:hover {
+    color: blue; /* Cambia el color del texto del enlace al pasar el mouse */
+}
+
+
+#Francisco{
+    color: blue
+    
+}
+
+#Francisco:hover{
+    color: green
+}
+
+#ejercicio_1{
+    color:white
+}
+
+
+.preguntas {
+    max-height: 500px;
+    padding: 1px;
+    float: left;
+    width: 60%;
+    margin: 30px;
+   
+}
+
+
+.preguntas .scrollable{
+    height: 220px;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: #162938 #f5f5f5;
+}
+
+.preguntas .scrollable::-webkit-scrollbar{
+    width: 5px;
+}
+
+.preguntas .scrollable::-webkit-scrollbar-track{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.preguntas .scrollable::-webkit-scrollbar-thumb{
+    background-color: #162938;
+    border-radius: 10px;
+}
+
+
+/*SE ELIMINO LA PARTE DE P (PARRAFO) QUE ES LO QUE GENERABA EL CONTORNO AZUL EN EL TEXTO*/
+
+
+.image {
+    flex: 1;
+    display: flex;
+    align-items: flex-start; /* Alinea la imagen en la parte superior */
+    justify-content: right; /* Alinea la imagen a la derecha */
+    margin-right:  200px; /* Margen alrededor de la imagen */
+    padding-right: 40px; /* Espacio entre el párrafo y la imagen */
+}
+
+.image img {
+    max-width: 200px; /* Ajusta el ancho máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 15px;
+}
+
+footer.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: black; /* Cambia el color del texto según tus preferencias */
+    padding: 20px; /* Añade relleno para que el contenido sea visible */
+  }
