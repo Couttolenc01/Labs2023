@@ -25,13 +25,14 @@ app.set('views', 'views'); // la carpeta donde se ecuentran todas mis vistas es 
 //Settings
 app.set('appName', 'Express Tutorial'); //Estableciendo una configuracion
 app.set('port', 3000);
-app.set('view engine', 'ejs'); //Motor de plantilla
+
 
 
 //Middlewares
 
 app.use(morgan('dev'))
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 //Para acceder a los recursos de la carpeta public
@@ -47,10 +48,12 @@ app.use((request, response, next) => {
 
 const rutasVideojuegos = require('./Routes/videojuegos.routes');
 const rutasTienda = require('./Routes/tienda.routes');
+const rutasAppTareas = require('./Routes/appTareas.routes');
 
 
 app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
+app.use('/appTareas', rutasAppTareas);
 
 app.get('/inicio', (request, response, next) => {
     response.sendFile(path.join(__dirname, 'views', 'inicio.html'));

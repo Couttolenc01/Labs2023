@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJS Template</title>
+    <title><%= title %></title>
+    <%- include('partials/head'); -%>
 </head>
-<body>
-    <h1>EJS</h1>
-
-<ul>
-    <% people.forEach(function(person){ %>
-        <li><%= person.name %></li>
-    <% }); %>
-</ul>
+<body class="container">
+    <%- include('partials/header'); -%>
+   
+    <%= title %>
 </body>
 </html>
