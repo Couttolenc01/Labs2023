@@ -14,13 +14,15 @@ exports.get = (request, response, next) => {
     response.render('index', {
         title: 'Inicio',
         NuevaEntrada: entries,
+        isLoggedIn: request.session.isLoggedIn,
         entries: entries // Pasar entries como variable local a la vista
     });
 }
 
 exports.getNewEntry = (request, response, next) => {
     response.render('new-entry', {
-        title: 'Nueva entrada'
+        title: 'Nueva entrada',
+        isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
     
 }

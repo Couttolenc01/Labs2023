@@ -8,6 +8,9 @@ router.get('/login', usersController.getLogin);
 
 router.post('/login', usersController.postLogin);
 
+router.get('/logout', usersController.logout);
+
+
 
 
 
