@@ -2,12 +2,14 @@ const express = require('express');
 
 const router = express.Router();
 
-let entries = [];
-router.entries = entries;
+const entries = [];
+
+
 
 router.get('/', (request, response, next) => {
     response.render('index', {
-        title: 'Inicio'
+        title: 'Inicio',
+        entries: entries // Pasar entries como variable local a la vista
     });
 });
 
@@ -30,10 +32,10 @@ router.post('/new-entry', (request, response, next) => {
         published: new Date()
     };
 
-
+    
     entries.push(newEntry);
 
-    response.redirect('/');
+    response.redirect('/appTareas');
 
     
 });

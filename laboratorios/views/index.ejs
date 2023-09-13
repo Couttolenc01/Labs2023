@@ -8,7 +8,29 @@
 </head>
 <body class="container">
     <%- include('partials/header'); -%>
+
+    <% if (entries.length) { %>
+        <% entries.forEach(function(entry) { %>
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <%= entry.title %>
+                    <div class="float-end">
+                        <%= entry.published %>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <%= entry.content %>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <h1>No existen entradas</h1>
+    <% } %>
+    
+     
+            
+        
    
-    <%= title %>
+   
 </body>
 </html>
