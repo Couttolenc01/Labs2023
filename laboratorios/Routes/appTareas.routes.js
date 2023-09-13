@@ -9,7 +9,6 @@ const appTareasController = require('../controllers/appTareas_controller');
 
 router.get('/', appTareasController.get);
 
-
 router.get('/new-entry', appTareasController.getNewEntry);
 
 router.post('/new-entry', appTareasController.postNewEntry);

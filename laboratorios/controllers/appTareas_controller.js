@@ -1,8 +1,11 @@
-const entries = [];
+const Entry = require('../models/newEntry');
+
 
 exports.get = (request, response, next) => {
+    const entries = Entry.fetchAll();
     response.render('index', {
         title: 'Inicio',
+        NuevaEntrada: entries,
         entries: entries // Pasar entries como variable local a la vista
     });
 }
@@ -25,8 +28,11 @@ exports.postNewEntry = (request, response, next) => {
         published: new Date()
     };
 
+    // Utiliza el modelo Entry para guardar la nueva entrada
+    const entryModel = new Entry(newEntry);
+    entryModel.save();
+
     
-    entries.push(newEntry);
 
     response.redirect('/appTareas');
 
