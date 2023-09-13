@@ -3,6 +3,10 @@ const Entry = require('../models/newEntry');
 
 exports.get = (request, response, next) => {
     const entries = Entry.fetchAll();
+
+    console.log('Cookie: ' + request.get('Cookie'));
+   
+
     response.render('index', {
         title: 'Inicio',
         NuevaEntrada: entries,
@@ -32,7 +36,7 @@ exports.postNewEntry = (request, response, next) => {
     const entryModel = new Entry(newEntry);
     entryModel.save();
 
-    
+    response.setHeader('Set-Cookie', 'ultima_tarea='+ newEntry.title);
 
     response.redirect('/appTareas');
 
