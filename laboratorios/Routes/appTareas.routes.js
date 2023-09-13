@@ -10,12 +10,7 @@ const appTareasController = require('../controllers/appTareas_controller');
 router.get('/', appTareasController.get);
 
 
-router.get('/new-entry', (request, response, next) => {
-    response.render('new-entry', {
-        title: 'Nueva entrada'
-    });
-    
-});
+router.get('/new-entry', appTareasController.getNewEntry);
 
 router.post('/new-entry', (request, response, next) => {
     if(!request.body.title || !request.body.body){
