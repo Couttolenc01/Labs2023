@@ -52,11 +52,13 @@ app.use((request, response, next) => {
 const rutasVideojuegos = require('./Routes/videojuegos.routes');
 const rutasTienda = require('./Routes/tienda.routes');
 const rutasAppTareas = require('./Routes/appTareas.routes');
+const rutasUsers = require('./Routes/users.routes');
 
 
 app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
 app.use('/appTareas', rutasAppTareas);
+app.use('/users', rutasUsers);
 
 app.get('/inicio', (request, response, next) => {
     response.sendFile(path.join(__dirname, 'views', 'inicio.html'));
