@@ -4,14 +4,10 @@ const router = express.Router();
 
 const entries = [];
 
+const appTareasController = require('../controllers/appTareas_controller');
 
 
-router.get('/', (request, response, next) => {
-    response.render('index', {
-        title: 'Inicio',
-        entries: entries // Pasar entries como variable local a la vista
-    });
-});
+router.get('/', appTareasController.get);
 
 
 router.get('/new-entry', (request, response, next) => {
