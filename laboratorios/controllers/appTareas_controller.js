@@ -2,21 +2,34 @@ const Entry = require('../models/newEntry');
 
 
 exports.get = (request, response, next) => {
-    const entries = Entry.fetchAll();
 
     console.log('Cookie: ' + request.get('Cookie'));
 
     //Con cookie parser
     console.log(request.cookies);
     console.log(request.cookies.ultima_tarea);
+
+    Entry.fetchAll()
+        .then(([rows, fieldData]) => {
+            const entries = [];
+            for (let tarea of rows) {
+            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion});
+            //console.log(tarea.titulo);
+            
+        }
+        console.log(entries);
+        response.render('index', {
+            title: 'Inicio',
+            NuevaEntrada: entries,
+            isLoggedIn: request.session.isLoggedIn,
+            entries: entries // Pasar entries como variable local a la vista
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
    
 
-    response.render('index', {
-        title: 'Inicio',
-        NuevaEntrada: entries,
-        isLoggedIn: request.session.isLoggedIn,
-        entries: entries // Pasar entries como variable local a la vista
-    });
 }
 
 exports.getNewEntry = (request, response, next) => {

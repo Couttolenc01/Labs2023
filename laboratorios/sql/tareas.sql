@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2023 a las 22:48:30
+-- Tiempo de generación: 14-09-2023 a las 00:21:47
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -35,6 +35,14 @@ CREATE TABLE `tareas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
+-- Volcado de datos para la tabla `tareas`
+--
+
+INSERT INTO `tareas` (`id`, `titulo`, `contenido`, `fecha_creacion`) VALUES
+(1, 'Laboratorio 17', 'Desarrollando lab17', '2023-09-13 22:17:08'),
+(2, 'Laboratorio 15', 'Lab 15 terminado', '2023-09-13 22:17:08');
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -52,7 +60,7 @@ ALTER TABLE `tareas`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,5 +1,6 @@
 
-const entries = [];
+
+const db = require('../util/database');
 
 module.exports = class Entry {
 
@@ -15,7 +16,9 @@ module.exports = class Entry {
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return entries;
+        return db.execute('SELECT * FROM tareas');
+            
+        
     }
 
 }
