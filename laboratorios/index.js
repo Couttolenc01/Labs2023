@@ -15,6 +15,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const app = express(); //Servidor de express
 
+var cookieParser = require('cookie-parser');
+
 
 //funcion set sirve para cambiar los valores de las variables globales
 
@@ -34,6 +36,7 @@ app.use(morgan('dev'))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
 
 //Para acceder a los recursos de la carpeta public
 app.use(express.static(path.join(__dirname, 'public')));

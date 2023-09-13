@@ -5,6 +5,10 @@ exports.get = (request, response, next) => {
     const entries = Entry.fetchAll();
 
     console.log('Cookie: ' + request.get('Cookie'));
+
+    //Con cookie parser
+    console.log(request.cookies);
+    console.log(request.cookies.ultima_tarea);
    
 
     response.render('index', {
@@ -36,7 +40,7 @@ exports.postNewEntry = (request, response, next) => {
     const entryModel = new Entry(newEntry);
     entryModel.save();
 
-    response.setHeader('Set-Cookie', 'ultima_tarea='+ newEntry.title);
+    response.setHeader('Set-Cookie', 'ultima_tarea='+ newEntry.title+'; HttpOnly');
 
     response.redirect('/appTareas');
 
