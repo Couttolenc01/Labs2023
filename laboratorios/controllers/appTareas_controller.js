@@ -1,5 +1,31 @@
 const Entry = require('../models/newEntry');
 
+//COPIAAAAAAAAAAAA//
+exports.getEntry = (request, response, next) => {
+    const id = request.params.entry_id;
+    Entry.fetchOne(id)
+        .then(([rows, fieldData]) => {
+            const entries = [];
+            for (let tarea of rows) {
+            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion});
+            //console.log(tarea.titulo);
+            
+        }
+        console.log(entries);
+        response.render('index', {
+            title: 'Inicio',
+            NuevaEntrada: entries,
+            isLoggedIn: request.session.isLoggedIn,
+            entries: entries // Pasar entries como variable local a la vista
+        });
+    })
+    .catch(err => {
+        console.log(err);
+    });
+   
+
+}
+//COPIAAAAAAAAAAAA//
 
 exports.get = (request, response, next) => {
 
@@ -45,6 +71,7 @@ exports.postNewEntry = (request, response, next) => {
         response.send(400).send('Entradas deben tener un titulo y un cuerpo');
     }
 
+
     let newEntry = {
         title: request.body.title,
         content: request.body.body,
@@ -53,13 +80,16 @@ exports.postNewEntry = (request, response, next) => {
 
     // Utiliza el modelo Entry para guardar la nueva entrada
     const entryModel = new Entry(newEntry);
-    entryModel.save();
-
-    response.setHeader('Set-Cookie', 'ultima_tarea='+ newEntry.title+'; HttpOnly');
-
-    response.redirect('/appTareas');
-
-    
+    entryModel.save()
+    .then(() => {
+        return response.redirect('/appTareas');
+    }).catch((error) => {
+        console.log(error);
+        response.redirect('/users/login')
+    });
 }
+
+
+
 
 

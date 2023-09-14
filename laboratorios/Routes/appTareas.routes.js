@@ -6,6 +6,7 @@ const entries = [];
 
 const appTareasController = require('../controllers/appTareas_controller');
 
+router.get('/:entry_id', appTareasController.getEntry);
 
 router.get('/', appTareasController.get);
 
