@@ -75,7 +75,7 @@ exports.postNewEntry = (request, response, next) => {
     let newEntry = {
         title: request.body.title,
         content: request.body.body,
-        published: new Date()
+        published: new Date(),
     };
 
     // Utiliza el modelo Entry para guardar la nueva entrada
@@ -87,6 +87,8 @@ exports.postNewEntry = (request, response, next) => {
         console.log(error);
         response.redirect('/users/login')
     });
+
+
 }
 
 
