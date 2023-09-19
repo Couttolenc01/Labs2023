@@ -7,7 +7,7 @@ exports.getEntry = (request, response, next) => {
         .then(([rows, fieldData]) => {
             const entries = [];
             for (let tarea of rows) {
-            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion});
+            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion, imagen: tarea.imagen});
             //console.log(tarea.titulo);
             
         }
@@ -39,7 +39,7 @@ exports.get = (request, response, next) => {
         .then(([rows, fieldData]) => {
             const entries = [];
             for (let tarea of rows) {
-            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion});
+            entries.push({title: tarea.titulo, content: tarea.contenido, published: tarea.fecha_creacion, imagen: tarea.imagen});
             //console.log(tarea.titulo);
             
         }
@@ -76,6 +76,7 @@ exports.postNewEntry = (request, response, next) => {
         title: request.body.title,
         content: request.body.body,
         published: new Date(),
+        imagen: request.file.filename,
     };
 
     // Utiliza el modelo Entry para guardar la nueva entrada

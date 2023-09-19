@@ -21,6 +21,11 @@
                 <div class="card-body">
                     <%= entry.content %>
                 </div>
+                <% if (!entry.imagen) { %>
+                    <br>
+                <% } else { %> 
+                    <img src="/uploads/<%= entry.imagen %>" alt="imagen">
+                <% } %>
             </div>
         <% }); %>
     <% } else { %>

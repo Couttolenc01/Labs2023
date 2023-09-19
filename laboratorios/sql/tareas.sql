@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-09-2023 a las 00:21:47
+-- Tiempo de generación: 19-09-2023 a las 05:11:29
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tareas` (
   `id` int(11) NOT NULL,
   `titulo` varchar(255) NOT NULL,
-  `contenido` text NOT NULL,
+  `contenido` varchar(225) NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -40,7 +40,13 @@ CREATE TABLE `tareas` (
 
 INSERT INTO `tareas` (`id`, `titulo`, `contenido`, `fecha_creacion`) VALUES
 (1, 'Laboratorio 17', 'Desarrollando lab17', '2023-09-13 22:17:08'),
-(2, 'Laboratorio 15', 'Lab 15 terminado', '2023-09-13 22:17:08');
+(2, 'Laboratorio 15', 'Lab 15 terminado', '2023-09-13 22:17:08'),
+(3, 'lab 17', '        \r\n                ya quiero acabar', '2023-09-14 02:34:14'),
+(4, 'lab 17', '        \r\n                furstrado al mil', '2023-09-14 02:59:58'),
+(5, 'Prueba de archivo', '        subiendo imagen\r\n                ', '2023-09-19 00:59:35'),
+(6, 'prueba', '     prueba\r\n                ', '2023-09-19 01:16:52'),
+(7, 'prueba 3', '        archivo\r\n                ', '2023-09-19 01:37:01'),
+(8, 'j', '        \r\n                j', '2023-09-19 02:00:17');
 
 --
 -- Índices para tablas volcadas
@@ -60,7 +66,7 @@ ALTER TABLE `tareas`
 -- AUTO_INCREMENT de la tabla `tareas`
 --
 ALTER TABLE `tareas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

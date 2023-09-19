@@ -9,13 +9,17 @@ module.exports = class Entry {
         this.title = entry.title || '';
         this.content = entry.content || '';
         this.published = entry.published || '';
+        this.imagen = entry.imagen || '';
+        
+       
+        
     }
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
 
-        return db.execute('INSERT INTO tareas(titulo, contenido, fecha_creacion) VALUES (?, ? ,?)',
-        [this.title, this.content, this.published]
+        return db.execute('INSERT INTO tareas(titulo, contenido, fecha_creacion, imagen) VALUES (?, ? ,?, ?)',
+        [this.title, this.content, this.published, this.imagen]
     );
         //entries.push(this.entry);
     }

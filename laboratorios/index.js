@@ -60,7 +60,9 @@ const fileStorage = multer.diskStorage({
 //usamos single porque es un sólo archivo el que vamos a subir, 
 //pero hay diferentes opciones si se quieren subir varios archivos. 
 //'archivo' es el nombre del input tipo file de la forma
-app.use(multer({ storage: fileStorage }).single('entry')); 
+app.use(multer({ storage: fileStorage }).single('imagen')); 
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 //Para acceder a los valores de las cookies
 app.use(cookieParser());
