@@ -38,8 +38,8 @@ module.exports = class User {
     }
     */
 
-    static fetchOne(username, password) {
-        return db.execute('SELECT * FROM usuarios WHERE username = ? AND password = ?', [username, password]);
+    static fetchOne(username) {
+        return db.execute('SELECT * FROM usuarios WHERE username = ?', [username]);
             
         
     }
