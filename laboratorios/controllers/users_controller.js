@@ -4,16 +4,19 @@ const bcrypt = require('bcryptjs');
 exports.getLogin = (request, response, next) => {
     response.render('login', {
         title: 'Iniciar sesión',
+        error: request.session.error,
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
      
 };
 
 exports.postLogin = (request, response, next) => {
+    request.session.error = null;
     const username = request.body.username;
     Usuario.fetchOne(username)
         .then(([rows, fieldData]) => {
             if (!rows || rows.length === 0) {
+                request.session.error = 'Usuario y/o contraseña son incorrectos';
                 // User not found in the database
                 return response.redirect('/users/login');
             }
@@ -27,9 +30,11 @@ exports.postLogin = (request, response, next) => {
                             response.redirect('/appTareas');
                         });
                     }
+                    request.session.error = 'Usuario y/o contraseña son incorrectos';
                     response.redirect('/users/login');
                 })
                 .catch(err => {
+                    request.session.error = 'Usuario y/o contraseña son incorrectos';
                     response.redirect('/users/login');
                 });
         });

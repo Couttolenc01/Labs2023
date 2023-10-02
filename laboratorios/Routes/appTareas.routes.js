@@ -1,5 +1,7 @@
 const express = require('express');
 
+const isAuth = require('../util/is-auth');
+
 const router = express.Router();
 
 const entries = [];
@@ -7,13 +9,13 @@ const entries = [];
 const appTareasController = require('../controllers/appTareas_controller');
 
 
-router.get('/new-entry', appTareasController.getNewEntry);
+router.get('/new-entry', isAuth, appTareasController.getNewEntry);
 
-router.post('/new-entry', appTareasController.postNewEntry);
+router.post('/new-entry', isAuth, appTareasController.postNewEntry);
 
-router.get('/:entry_id', appTareasController.getEntry);
+router.get('/:entry_id', isAuth, appTareasController.getEntry);
 
-router.get('/', appTareasController.get);
+router.get('/', isAuth,  appTareasController.get);
 
 
 
