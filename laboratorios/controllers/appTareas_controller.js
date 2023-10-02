@@ -61,6 +61,7 @@ exports.get = (request, response, next) => {
 exports.getNewEntry = (request, response, next) => {
     response.render('new-entry', {
         title: 'Nueva entrada',
+        csrfToken: request.csrfToken(),
         isLoggedIn: request.session.isLoggedIn === true ? true : false
     });
     

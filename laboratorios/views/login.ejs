@@ -20,6 +20,7 @@
                 
                 <form action="/users/login" method="post">
                     <div class="mb-3">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                         <label for="username" class="form-label">Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="username" placeholder="Ingresa tu usuario">
                     </div>

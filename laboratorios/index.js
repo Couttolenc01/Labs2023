@@ -19,6 +19,10 @@ const cookieParser = require('cookie-parser');
 
 const session = require('express-session');
 
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
+
 
 //funcion set sirve para cambiar los valores de las variables globales
 
@@ -67,6 +71,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 //Para acceder a los valores de las cookies
 app.use(cookieParser());
 
+
 //Para trabajar con sesiones
 app.use(session({
     secret: 'Labs2023', 
@@ -76,6 +81,9 @@ app.use(session({
 
 //Para acceder a los recursos de la carpeta public
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(csrfProtection);
+
 
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
@@ -99,6 +107,7 @@ app.use('/users', rutasUsers);
 app.get('/inicio', (request, response, next) => {
     response.sendFile(path.join(__dirname, 'views', 'inicio.html'));
 });
+
 
 
 app.use((req, res) => {

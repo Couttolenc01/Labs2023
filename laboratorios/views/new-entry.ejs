@@ -17,6 +17,7 @@
         </h2>
 
         <form action ="/appTareas/new-entry" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
             <input type="file" name="imagen">
             <input type="submit" name="enviar" value="subir">
             <div class="form-group">
