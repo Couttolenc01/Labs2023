@@ -79,6 +79,8 @@ app.use(session({
     saveUninitialized: false, //Asegura que no se guarde una sesión para una petición que no lo necesita
 }));
 
+
+
 //Para acceder a los recursos de la carpeta public
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -88,10 +90,14 @@ app.use(csrfProtection);
 
 app.use(express.json()); //Para que el servidor entienda los datos que le envia el navegador
 
+
+
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
 }); 
+
+
 
 
 const rutasVideojuegos = require('./Routes/videojuegos.routes');
@@ -100,14 +106,19 @@ const rutasAppTareas = require('./Routes/appTareas.routes');
 const rutasUsers = require('./Routes/users.routes');
 
 
+
+
 app.use('/videojuegos', rutasVideojuegos);
 app.use('/tienda', rutasTienda);
 app.use('/appTareas', rutasAppTareas);
 app.use('/users', rutasUsers);
 
+
+
 app.get('/inicio', (request, response, next) => {
     response.sendFile(path.join(__dirname, 'views', 'inicio.html'));
 });
+
 
 
 
