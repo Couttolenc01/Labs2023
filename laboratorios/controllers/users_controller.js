@@ -61,7 +61,7 @@ exports.postRegister = (request, response, next) => {
     nuevoUsuario.save()
     .then(() => {
         request.session.isLoggedIn = true;
-         request.session.usuario = request.body.usuario;
+        request.session.usuario = request.body.usuario;
         response.redirect('/appTareas');
     }).catch((err) => {
         console.log(err);
